@@ -1,0 +1,19 @@
+INSTRUCOES PARA GITHUB E RENDER - LDV VISTORIA
+
+O projeto ja inclui todos os arquivos estaticos. O erro "Directory /app/static does not exist" significa que esses arquivos nao chegaram ao container Render.
+
+GITHUB:
+1. Extraia ESTE ZIP no computador. Os arquivos main.py, Dockerfile, requirements.txt e a pasta static estarao todos na raiz.
+2. No repositorio GitHub, escolha Add file > Upload files.
+3. ARRASTE todos os arquivos e a pasta static inteira para essa pagina (nao apenas o main.py).
+4. Aguarde o upload e clique em Commit changes.
+5. Confira em GitHub se static/index.html, static/app.js e static/style.css existem.
+
+RENDER:
+1. Settings > Build & Deploy: Root Directory vazio (pois os arquivos estao na raiz do repositorio), Dockerfile Path ./Dockerfile.
+2. Manual Deploy > Deploy latest commit.
+3. Verifique Logs. Com esta versao, a build avisa logo se static nao foi enviado.
+
+Observacao: se voce tiver colocado tudo dentro da pasta LDV_Vistoria_Inteligente NO GITHUB, configure Root Directory LDV_Vistoria_Inteligente em vez de deixar vazio.
+
+Nao inclua .env, senhas, SESSION_SECRET ou OPENAI_API_KEY no GitHub; configure-os em Environment no Render.
