@@ -1,0 +1,17 @@
+services:
+  ldv-vistoria:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Defina ADMIN_PASSWORD}
+      SESSION_SECRET: ${SESSION_SECRET:?Defina SESSION_SECRET}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4.1-mini}
+      SECURE_COOKIES: ${SECURE_COOKIES:-false}
+      DATA_DIR: /app/data
+    volumes:
+      - ldv-dados:/app/data
+    restart: unless-stopped
+volumes:
+  ldv-dados:
